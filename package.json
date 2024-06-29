@@ -1,0 +1,29 @@
+{
+  "name": "cse341-gym",
+  "version": "1.0.0",
+  "description": "CSE-341 Gym Project",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sterlingjdub/CSE341-Gym.git"
+  },
+  "author": "Sterling Welker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sterlingjdub/CSE341-Gym/issues"
+  },
+  "homepage": "https://github.com/Sterlingjdub/CSE341-Gym#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
