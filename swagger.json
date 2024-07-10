@@ -12,16 +12,6 @@
     "http"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -32,7 +22,27 @@
         }
       }
     },
-    "/contacts/": {
+    "/profile/": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ]
+      }
+    },
+    "/members/": {
       "get": {
         "description": "",
         "produces": [
@@ -41,6 +51,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
@@ -62,10 +75,16 @@
                 "email": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "phone": {
                   "example": "any"
                 },
-                "birthday": {
+                "dateOfBirth": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "startDate": {
                   "example": "any"
                 }
               }
@@ -76,13 +95,16 @@
           "201": {
             "description": "Created"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/contacts/{id}": {
+    "/members/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -99,6 +121,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -126,10 +154,16 @@
                 "email": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "phone": {
                   "example": "any"
                 },
-                "birthday": {
+                "dateOfBirth": {
+                  "example": "any"
+                },
+                "membershipType": {
+                  "example": "any"
+                },
+                "endDate": {
                   "example": "any"
                 }
               }
@@ -139,6 +173,163 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/classes/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "className": {
+                  "example": "any"
+                },
+                "instructor": {
+                  "example": "any"
+                },
+                "schedule": {
+                  "example": "any"
+                },
+                "duration": {
+                  "example": "any"
+                },
+                "capacity": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/classes/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "className": {
+                  "example": "any"
+                },
+                "instructor": {
+                  "example": "any"
+                },
+                "schedule": {
+                  "example": "any"
+                },
+                "duration": {
+                  "example": "any"
+                },
+                "capacity": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
