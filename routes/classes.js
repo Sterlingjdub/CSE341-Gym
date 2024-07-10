@@ -9,7 +9,7 @@ router.get('/:id', classesController.getClassById);
 
 router.post('/', validation.saveClass,classesController.createClass);
 
-router.put('/:id', validation.saveClass, classesController.udpateClass);
+router.put('/:id', validation.saveClass, classesController.updateClass);
 
 router.delete('/:id', classesController.deleteClass);
 

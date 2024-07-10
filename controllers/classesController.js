@@ -87,6 +87,6 @@ module.exports = {
     getClasses,
     getClassById,
     createClass,
-    udpateClass,
+    updateClass,
     deleteClass
 };
