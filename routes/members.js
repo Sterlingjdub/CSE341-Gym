@@ -9,7 +9,7 @@ router.get('/:id', membersController.getMemberById);
 
 router.post('/', validation.saveMember,membersController.createMember);
 
-router.put('/:id', validation.saveMember, membersController.updateMember);
+router.put('/:id', membersController.updateMember);
 
 router.delete('/:id', membersController.deleteMember);
 
