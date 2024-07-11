@@ -25,7 +25,7 @@ const saveMember = (req, res, next) => {
 
 const saveClass = (req, res, next) => {
   const validationRule = {
-    classname: "required|string",
+    className: "required|string",
     instructor: "required|string",
     schedule: "required|string",
     duration: "required|string",
