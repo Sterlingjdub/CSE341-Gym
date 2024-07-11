@@ -8,7 +8,7 @@ const saveMember = (req, res, next) => {
     phone: "required|string",
     dateOfBirth: "required|string",
     membershipType: "required|string",
-    startDate: "required|string",
+    startDate: "string",
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
